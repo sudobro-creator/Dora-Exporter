@@ -1,0 +1,17 @@
+[Unit]
+Description=DORA Exporter for GitHub Metrics
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/teamjava/dora_exporter/dora_exporter.py
+WorkingDirectory=/home/teamjava/dora_exporter
+Restart=always
+RestartSec=5
+User=teamjava
+Group=your_group
+EnvironmentFile=/path/to/your/.env
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
